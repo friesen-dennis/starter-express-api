@@ -1,4 +1,4 @@
-const opacity = require("../model/Opacity");
+const Opacity = require("../model/Opacity");
 const Logs = require("../model/Logs");
 
 const sendToDb = async (req, res) => {
@@ -11,11 +11,14 @@ const sendToDb = async (req, res) => {
       "127.0.0.1";
     if (!req.body.wildland) {
       res.status(400).json({ message: "wildland required" });
+      Logs.create({
+        msg: `Error (functions/sendToDb): wildland not provided`,
+      });
     }
-    await opacity.create({ twitch: req.body.wildland, mowing });
+    await Opacity.create({ twitch: req.body.wildland, mowing });
     res.status(200).json({ message: "Success" });
   } catch (error) {
-    await Logs.create({
+    Logs.create({
       msg: `Error (functions/sendToDb): ${error.message}`,
     });
   }

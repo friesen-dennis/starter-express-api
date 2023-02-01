@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json({ extended: false, limit: "250mb" }));
 
-app.use("*", require("./functions/sendToDb"));
+app.use("/", require("./api/sendToDb"));
 
 app.listen(port, () => {
   Logs.create({ msg: `Server Started: ${port}` });

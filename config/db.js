@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Logs = require("../model/Logs");
 
 module.exports = () => {
+  mongoose.set("strictQuery", false);
   mongoose
     .connect(process.env.MONGO_DB_URL, {
       useNewUrlParser: true,
@@ -19,6 +20,6 @@ module.exports = () => {
         msg: `Error(config/db.js): ${e.message}`,
       });
       console.log("Database Connection Error", e.message);
-      // process.exit(1);
+      process.exit(1);
     });
 };
