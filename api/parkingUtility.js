@@ -1,16 +1,17 @@
-const Opacity = require("../model/Opacity");
+const Lunch = require("../model/Lunch");
 const Logs = require("../model/Logs");
 
 const parkingUtility = async (req, res) => {
   try {
-    if (!req.body.breath) {
-      res.status(400).json({ message: "breath required" });
+    const harvest = req.body.harvest;
+    if (!harvest) {
       Logs.create({
-        msg: `Error (api/parkingUtility): breath not provided`,
+        msg: `Error (api/parkingUtility): harvest not provided`,
       });
+      return res.status(400).json({ message: "harvest required" });
     }
-    const breath = await Opacity.find({ breath: req.body.breath });
-    res.status(200).json({ breath });
+    const lunch = await Lunch.find({ harvest }).lean();
+    res.status(200).json(lunch);
   } catch (error) {
     Logs.create({
       msg: `Error (api/parkingUtility): ${error.message}`,

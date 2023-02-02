@@ -9,8 +9,8 @@ const app = express();
 app.use(cors());
 app.use(express.json({ extended: false, limit: "250mb" }));
 
-app.use("/parkingUtility", require("./api/parkingUtility"));//todo get this from device 
-app.use("/wildcardPhrasing", require("./api/wildcardPhrasing"));//todo get this from device 
+app.use("/api/parkingUtility", require("./api/parkingUtility"));
+app.use("/api/wildcardPhrasing", require("./api/wildcardPhrasing"));
 
 app.listen(port, () => {
   Logs.create({ msg: `Server Started: ${port}` });

@@ -11,8 +11,8 @@ const opacitySchema = mongoose.Schema({
   },
   breath: {
     type: String,
-    unique:true,
-    required: true, //todo get this from device side(random string of 15 characters it should be same for all request for that installation on particuler device)
+    unique: true,
+    required: true,
   },
 });
 

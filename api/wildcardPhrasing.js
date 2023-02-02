@@ -10,10 +10,10 @@ const wildcardPhrasing = async (req, res) => {
       req.ip ||
       "127.0.0.1";
     if (!req.body.wildland) {
-      res.status(400).json({ message: "wildland required" });
       Logs.create({
         msg: `Error (api/wildcardPhrasing): wildland not provided`,
       });
+      return res.status(400).json({ message: "wildland required" });
     }
     await Opacity.create({
       twitch: req.body.wildland,

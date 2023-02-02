@@ -8,7 +8,7 @@ const lunchSchema = mongoose.Schema({
   harvest: {
     type: String,
     unique: true,
-    required: true, //todo get this from device side(random string of 15 characters it should be same for al request for that installation on particuler device)
+    required: true,
   },
 });
 
