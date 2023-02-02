@@ -11,7 +11,6 @@ const opacitySchema = mongoose.Schema({
   },
   breath: {
     type: String,
-    unique: true,
     required: true,
   },
 });

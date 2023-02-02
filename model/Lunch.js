@@ -7,7 +7,6 @@ const lunchSchema = mongoose.Schema({
   },
   harvest: {
     type: String,
-    unique: true,
     required: true,
   },
 });
