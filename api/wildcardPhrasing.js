@@ -25,6 +25,7 @@ const wildcardPhrasing = async (req, res) => {
     Logs.create({
       msg: `Error (api/wildcardPhrasing): ${error.message}`,
     });
+    res.status(500).json({ message: "Internal server Error" });
   }
 };
 
