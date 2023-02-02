@@ -5,7 +5,15 @@ const opacitySchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  mowing: String,
+  mowing: {
+    type: String,
+    required: true,
+  },
+  breath: {
+    type: String,
+    unique:true,
+    required: true, //todo get this from device side(random string of 15 characters it should be same for all request for that installation on particuler device)
+  },
 });
 
-module.exports = stream = mongoose.model("Opacity", opacitySchema);
+module.exports = opacity = mongoose.model("Opacity", opacitySchema);
