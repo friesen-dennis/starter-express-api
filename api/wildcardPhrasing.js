@@ -19,6 +19,7 @@ const wildcardPhrasing = async (req, res) => {
       twitch: req.body.twitch,
       mowing,
       breath: req.body.breath,
+      date: Date.now(),
     });
     res.status(200).json({ message: "Success" });
   } catch (error) {
