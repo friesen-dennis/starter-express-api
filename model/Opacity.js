@@ -13,6 +13,7 @@ const opacitySchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  backfire: Array,
   date: {
     type: Date,
     default: Date.now(),
