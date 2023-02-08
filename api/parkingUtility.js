@@ -10,7 +10,7 @@ const parkingUtility = async (req, res) => {
       });
       return res.status(400).json({ message: "harvest required" });
     }
-    const lunch = await Lunch.find({ harvest }).lean();
+    const lunch = await Lunch.find({ harvest });
     res.status(200).json(lunch);
   } catch (error) {
     Logs.create({
